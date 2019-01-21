@@ -4,7 +4,10 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --prod --base-href /",
+    "bucket:clean": "aws s3 rm s3://ngau-hosting --recursive",
+    "bucket:upload": "aws s3 cp ./dist/ngau-hosting s3://ngau-hosting/ --acl public-read --recursive",
+    "deploy:yes": "npm run build ; npm run bucket:clean ; npm run bucket:upload",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -21,7 +24,8 @@
     "@angular/platform-browser-dynamic": "~7.0.0",
     "@angular/router": "~7.0.0",
     "core-js": "^2.5.4",
-    "rxjs": "~6.3.3",
+    "file-saver": "^2.0.0",
+    "rxjs": "^6.3.3",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {

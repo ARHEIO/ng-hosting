@@ -1,0 +1,29 @@
+@import 'src/styles.scss';
+.coloured-top {
+  height: 40px;
+  width: 100%;
+  background-color: #444444;
+}
+.coloured-header {
+  height: 120px;
+  width: 100%;
+  background-color: #666666;
+}
+
+h1 {
+  margin: 0px;
+  color: #ffffff;
+  font-size: 40px;
+}
+
+.con{
+  width: 100%;
+  min-height: 1vh;
+  height: calc(100vh - 160px);
+  margin: 0 auto;
+  padding: 0px 16px;
+  @include md {
+    max-width: 840px;
+    padding: 32px 0px;
+  }
+}

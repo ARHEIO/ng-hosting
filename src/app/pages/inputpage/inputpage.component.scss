@@ -1,0 +1,60 @@
+@import 'src/styles.scss';
+.papers{
+  width: 100%;
+  min-height: 1vh;
+  height: calc(100vh - 160px);
+  margin: 0 auto;
+  padding: 0px 16px;
+  @include md {
+    max-width: 840px;
+    padding: 0px;
+  }
+}
+
+.top {
+  margin-top: -32px;
+}
+
+.invoice-section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 32px;
+  background-color: #ffffff;
+  padding: 64px;
+  border-radius: 3px;
+  .subtitle {
+    margin-right: 32px;
+    font-size: 20px;
+    line-height: 1.5;
+    width: calc(30% - 32px);
+  }
+  input {
+    outline: none;
+    color: unset;
+    font-size: 16px;
+    width: 70%;
+    display: table-cell;
+    box-shadow: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    line-height: 1.42857;
+  }
+}
+
+.button {
+  background-color: #9945B5;
+  color: #ffffff;
+  padding: 16px 64px;
+  width: 100%;
+  &:hover {
+    cursor: pointer; 
+    background-color: lighten(#9945B5, 10%);
+  }
+  &:active {
+    background-color: darken(#9945B5, 10%);
+  }
+  &:active, &:focus {
+    outline: none;
+  }
+}
