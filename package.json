@@ -5,12 +5,13 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build --prod --base-href /",
-    "bucket:clean": "aws s3 rm s3://ngau-hosting --recursive",
-    "bucket:upload": "aws s3 cp ./dist/ngau-hosting s3://ngau-hosting/ --acl public-read --recursive",
-    "deploy:yes": "npm run build ; npm run bucket:clean ; npm run bucket:upload",
+    "deploy:github": "ng build --prod --output-path docs --base-href /ngau-hosting/ ; git add docs/ ; git commit -m \"Deploy to Github\" ; git push",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "bucket:clean": "aws s3 rm s3://ngau-hosting --recursive",
+    "bucket:upload": "aws s3 cp ./dist/ngau-hosting s3://ngau-hosting/ --acl public-read --recursive",
+    "deploy:yes": "npm run build ; npm run bucket:clean ; npm run bucket:upload"
   },
   "private": true,
   "dependencies": {
