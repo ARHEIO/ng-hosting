@@ -12,6 +12,10 @@ import { RouterModule } from '@angular/router';
 import { HttpModule } from '@angular/http';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import { AngularFireModule } from '@angular/fire';
+import { environment } from '../environments/environment';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+
 
 @NgModule({
   declarations: [
@@ -27,7 +31,10 @@ import { HttpClientModule } from '@angular/common/http';
     RouterModule,
     HttpModule,
     CommonModule,
-    HttpClientModule
+    HttpClientModule,
+    AngularFireDatabaseModule,
+    AngularFireModule.initializeApp(environment.firebase)
+
   ],
   providers: [
     CertificateService

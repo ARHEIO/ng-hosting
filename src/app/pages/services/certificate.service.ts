@@ -2,13 +2,17 @@ import { Injectable } from '@angular/core';
 import { Http, ResponseContentType, Headers } from '@angular/http';
 import { saveAs } from 'file-saver';
 
+import { AngularFireDatabase } from '@angular/fire/database';
 
 @Injectable()
 export class CertificateService {
 
   private response;
 
-  constructor(private http: Http) { }
+  constructor(
+    private http: Http,
+    private angularDatabaseService: AngularFireDatabase
+  ) { }
 
   createCertificate(incomingDate) {
     console.log('Generating Certificate')
@@ -28,12 +32,23 @@ export class CertificateService {
       })
     };
 
-    this.http.get(`https://s3-ap-southeast-2.amazonaws.com/ngau-hosting-certificates/${uniqueId}.pdf`, {responseType: ResponseContentType.Blob})
+    // this.http.get(`https://s3-ap-southeast-2.amazonaws.com/ngau-hosting-certificates/${uniqueId}.pdf`, {responseType: ResponseContentType.Blob})
+    //   .subscribe((response) => {
+    //     const blob = new Blob([response.blob()], {type: 'application/pdf'});
+    //     const filename = 'file.pdf';
+    //     saveAs(blob, filename);
+    // });
+
+    this.http.get(`https://ngau-hosting.firebaseio.com/secret2.json`)
       .subscribe((response) => {
-        const blob = new Blob([response.blob()], {type: 'application/pdf'});
-        const filename = 'file.pdf';
-        saveAs(blob, filename);
+        console.log(response);
+    });
+
+    this.angularDatabaseService.list<any>('/').valueChanges()
+      .subscribe((data) => {
+        console.log(data);
       });
+
   }
 }
 
