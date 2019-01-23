@@ -4,8 +4,8 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-input-page',
-  templateUrl: './InputPage.component.html',
-  styleUrls: ['./InputPage.component.scss']
+  templateUrl: './inputpage.component.html',
+  styleUrls: ['./inputpage.component.scss']
 })
 export class InputPageComponent implements OnInit {
 
