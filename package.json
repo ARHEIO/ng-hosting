@@ -5,6 +5,8 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build --prod --output-path public",
+    "deploy:netlify": "netlify deploy --prod --dir=public --functions=functions",
+    "deploy": "npm run build && npm run deploy:netlify",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
