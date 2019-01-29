@@ -1,0 +1,15 @@
+image: node:10.13.0
+
+# Deploy
+pages:
+  script:
+    - npm install -g @angular/cli
+    - npm install
+    - npm run build
+    - mkdir public
+    - mv dist/* public
+  artifacts:
+    paths:
+      - public
+  only:
+    - gitlab-pages
