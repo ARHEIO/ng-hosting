@@ -7,9 +7,14 @@ pages:
     - npm install
     - ng build --prod
     - mkdir public
-    - mv dist/* public
+    - mv dist/ngau-hosting/* public
   artifacts:
     paths:
       - public
   only:
     - gitlab-pages
+
+
+
+
+
