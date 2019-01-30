@@ -5,9 +5,14 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build --prod --output-path public",
+    "deploy:netlify": "netlify deploy --prod --dir=public --functions=functions",
+    "deploy": "npm run build && npm run deploy:netlify",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "bucket:clean": "aws s3 rm s3://ngau-hosting --recursive",
+    "bucket:upload": "aws s3 cp ./dist/ngau-hosting s3://ngau-hosting/ --acl public-read --recursive",
+    "deploy:yes": "npm run build ; npm run bucket:clean ; npm run bucket:upload"
   },
   "private": true,
   "dependencies": {
