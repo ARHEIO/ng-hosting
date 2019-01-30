@@ -28,11 +28,7 @@ export class CertificateService {
       })
     };
 
-    this.http.get(`https://trusting-saha-adc550.netlify.com/.netlify/functions/hello?name=Robin`)
-      .subscribe((response) => {
-        console.log(response);
-      });
-    this.http.get(`http://s3-ap-southeast-2.amazonaws.com/ngau-hosting-certificates/${uniqueId}.pdf`, {responseType: ResponseContentType.Blob})
+    this.http.get(`https://s3-ap-southeast-2.amazonaws.com/ngau-hosting-certificates/${uniqueId}.pdf`, {responseType: ResponseContentType.Blob})
       .subscribe((response) => {
         const blob = new Blob([response.blob()], {type: 'application/pdf'});
         const filename = 'file.pdf';
